@@ -20,8 +20,7 @@
 	spawn_flags		 = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED
 	health_hud_intensity = 2
 	num_alternate_languages = 3
-	species_language = LANGUAGE_SOL_COMMON
-	assisted_langs = list(LANGUAGE_EAL)
+	assisted_langs = list(LANGUAGE_ROOTLOCAL, LANGUAGE_ROOTGLOBAL, LANGUAGE_VOX)
 	color_mult = TRUE
 
 	breath_type = null
@@ -300,8 +299,8 @@
 /obj/item/clothing/accessory/permit/nanotech
 	name = "\improper P.A.N. card"
 	desc = "This is a 'Permit for Advanced Nanotechnology' card. It allows the owner to possess and operate advanced nanotechnology on NanoTrasen property. It must be renewed on a monthly basis."
-	icon = 'icons/mob/species/protean/protean.dmi'
-	icon_state = "permit_pan"
+	icon = 'icons/obj/card_cit.dmi'
+	icon_state = "permit-pan"
 /obj/item/clothing/accessory/permit/nanotech/set_name(var/new_name)
 	owner = 1
 	if(new_name)

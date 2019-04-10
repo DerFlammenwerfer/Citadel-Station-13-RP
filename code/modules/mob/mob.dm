@@ -373,8 +373,8 @@
 		var/deathtimeseconds = round((deathtime - deathtimeminutes * 600) / 10,1)
 		to_chat(usr, "You have been dead for[pluralcheck] [deathtimeseconds] seconds.")
 
-		if ((deathtime < (5 * 600)) && (ticker && ticker.current_state > GAME_STATE_PREGAME))
-			to_chat(usr, "You must wait 5 minutes to respawn!")
+		if ((deathtime < (3 * 600)) && (ticker && ticker.current_state > GAME_STATE_PREGAME))
+			to_chat(usr, "You must wait 3 minutes to respawn!")
 			return
 		else
 			to_chat(usr, "You can respawn now, enjoy your new life!")
@@ -710,6 +710,13 @@
 
 			if(statpanel("Tickets"))
 				GLOB.ahelp_tickets.stat_entry()
+
+			if(length(GLOB.sdql2_queries))
+				if(statpanel("SDQL2"))
+					stat("Access Global SDQL2 List", GLOB.sdql2_vv_statobj)
+					for(var/i in GLOB.sdql2_queries)
+						var/datum/SDQL2_query/Q = i
+						Q.generate_stat()
 
 		if(listed_turf && client)
 			if(!TurfAdjacent(listed_turf))

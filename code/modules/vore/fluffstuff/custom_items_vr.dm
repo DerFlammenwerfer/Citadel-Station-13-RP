@@ -288,8 +288,18 @@ END OF CITADEL CHANGES */
 END OF CITADEL CHANGE */
 //General use
 /obj/item/weapon/melee/fluff/holochain/mass
-	desc = "A mass produced version of the original. It has faux leather and an aluminium base, but still stings like the original."
+	name = "holographic chain"
+	desc = "A mass produced holographic chain. It has faux leather and an aluminium base, but still stings like an original."
+	icon = 'icons/vore/custom_items_vr.dmi'
+	icon_state = "holochain"
+	icon_override = 'icons/vore/custom_items_vr.dmi'
+	item_state = "holochain_mob"
+	flags = CONDUCT | NOBLOODY
+	slot_flags = SLOT_BELT
 	force = 8
+	throwforce = 3
+	w_class = ITEMSIZE_NORMAL
+	damtype = HALLOSS
 	attack_verb = list("flogged", "whipped", "lashed", "flayed")
 
 /* CITADEL CHANGE - Goodbye Virgo Fluff
@@ -1194,7 +1204,7 @@ END OF CITADEL CHANGES */
 //The perfect adminboos device?
 /obj/item/device/perfect_tele
 	name = "personal translocator"
-	desc = "Seems absurd, doesn't it? Yet, here we are. Generally considered dangerous contraband unless the user has permission from Central Command."
+	desc = "Seems absurd, doesn't it? Yet, here we are. This handheld device is capable of producing bluespace teleportation beacons, and can be activated to translocate the user or a target of their choice to any linked beacon."
 	icon = 'icons/obj/device_alt.dmi'
 	icon_state = "hand_tele"
 	w_class = ITEMSIZE_SMALL
@@ -1515,7 +1525,7 @@ END OF CITADEL CHANGES */
 // A single-beacon variant for use by miners (or whatever)
 /obj/item/device/perfect_tele/one_beacon
 	name = "mini-translocator"
-	desc = "A more limited translocator with a single beacon, useful for some things, like setting the mining department on fire accidentally. Legal for use in the pursuit of NanoTrasen interests, namely mining and exploration."
+	desc = "A more limited translocator with a single beacon, useful for some things, like setting the mining department on fire accidentally."
 	icon_state = "minitrans"
 	beacons_left = 1 //Just one
 	charge_cost = 2400 //One per
@@ -1598,10 +1608,10 @@ END OF CITADEL CHANGES */
 			qdel(src) //One time use.
 	else //If not, do nothing.
 		to_chat(user,"<span class='warning'>You are unable to inject other people.</span>")
-
+		END OF CITADEL CHANGES */
 //For 2 handed fluff weapons.
 /obj/item/weapon/material/twohanded/fluff //Twohanded fluff items.
-	name = "fluff."
+	name = "fluff item"
 	desc = "This object is so fluffy. Just from the sight of it, you know that either something went wrong or someone spawned the incorrect item."
 	icon = 'icons/vore/custom_items_vr.dmi'
 	item_icons = list(
@@ -1611,7 +1621,7 @@ END OF CITADEL CHANGES */
 
 /obj/item/weapon/material/twohanded/fluff/New(var/newloc)
 	..(newloc," ") //See materials_vr_dmi for more information as to why this is a blank space.
-END OF CITADEL CHANGES*/
+
 //General use.
 /obj/item/weapon/material/twohanded/fluff/riding_crop
 	name = "riding crop"

@@ -391,7 +391,7 @@
 	icon_state = "RPED"
 	w_class = ITEMSIZE_HUGE
 	can_hold = list(/obj/item/weapon/stock_parts)
-	storage_slots = 100 // Cit change
+	storage_slots = 50
 	use_to_pickup = 1
 	allow_quick_gather = 1
 	allow_quick_empty = 1
@@ -616,6 +616,7 @@
 	gender = PLURAL
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "ectoplasm"
+	origin_tech = list(TECH_BLUESPACE = 3, TECH_ARCANE = 1)
 
 /obj/item/weapon/research
 	name = "research debugging device"

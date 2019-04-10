@@ -46,6 +46,12 @@
 	pixel_x = -16
 	pixel_y = 0
 
+	max_buckled_mobs = 1 //Yeehaw
+	can_buckle = TRUE
+	buckle_movable = TRUE
+	buckle_lying = FALSE
+	mount_offset_y = 10
+
 	var/glowyeyes = FALSE
 	var/image/eye_layer = null
 	var/eyetype
@@ -166,7 +172,7 @@
 	vore_pounce_chance = 60 // Good boys don't do too much police brutality.
 
 	var/check_records = 0 // If true, arrests people without a record.
-	var/check_arrest = 1 // If true, arrests people who are set to arrest.
+	var/check_arrest = 0 // If true, arrests people who are set to arrest. CITADEL CHANGE - Let's not have mauling Beepskies
 
 /mob/living/simple_animal/otie/security/phoron
 	name = "mutated guard otie"
@@ -383,3 +389,12 @@
 	.=..()
 	resting = 0
 	icon_state = icon_dead
+
+/mob/living/simple_animal/otie/Login()
+	. = ..()
+	if(!riding_datum)
+		riding_datum = new /datum/riding/simple_animal(src)
+	verbs |= /mob/living/simple_animal/proc/animal_mount
+
+/mob/living/simple_animal/otie/MouseDrop_T(mob/living/M, mob/living/user)
+	return
